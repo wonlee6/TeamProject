@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.hotel.biz.mapper.JoinMapper">
+	<!-- 회원가입  -->
+    <insert id="HotelJoin">
+    	INSERT INTO MEMBER (ID, PW, name, phone, email) 
+    	VALUES (#{ID},#{PW},#{name},#{phone},#{email})
+    </insert>
+    
+    <!-- 중복체크  -->
+    <select id="idCheck" resultType="String"> 
+    SELECT count(*) from MEMBER WHERE ID=#{ID}
+     </select>
+     
+    <!-- 비밀번호 체크 -->
+    <select id="login" resultType="com.hotel.biz.VO.MemberVO">
+    	select * FROM MEMBER WHERE ID = #{ID} AND PW = #{PW}
+    </select>
+    
+    <!-- 마이페이지  -->
+    <select id="mypage" resultType="com.hotel.biz.VO.MemberVO">
+    	select ID,PW,name,phone,email from MEMBER where ID = #{ID};
+    </select>
+    
+    <update id="updateuser">
+        UPDATE MEMBER SET PW=#{PW}, name=#{name}, email=#{email}, phone=#{phone}
+        WHERE ID = #{ID};
+    </update>
+    
+    <delete id="deleteuser">
+    	DELETE FROM MEMBER WHERE ID=#{ID} AND PW=#{PW};
+    
+    
+    </delete>
+     
+    
+    
+</mapper>
