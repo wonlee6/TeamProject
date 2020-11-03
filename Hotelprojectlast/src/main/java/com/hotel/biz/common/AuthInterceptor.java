@@ -21,13 +21,15 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		
 		 HttpSession httpSession = request.getSession();
 
-		 if (httpSession.getAttribute("login") == null) {
-			 logger.info("current user is not logged");
-			 response.sendRedirect("/biz/login/loginpage.do");
-			 
-			 return false;
-		 }
-
+		/*
+		 * if (httpSession.getAttribute("login") == null) {
+		 * logger.info("current user is not logged");
+		 * response.sendRedirect("/biz/login/loginpage.do");
+		 * 
+		 * return false; }
+		 * 
+		 * return true;
+		 */
 		 return true;
 	}
 
