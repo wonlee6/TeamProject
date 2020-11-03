@@ -8,6 +8,10 @@
 <html>
 <head>
 <title>로그인</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/biz/resources/css/join.css" />
 </head>
 <body>
@@ -18,7 +22,7 @@
 				<br>
 				<h1 align="center">LOG IN</h1>
 				<div class="button-wrap">
-					<div id="btn"></div>
+					 <div id="btn"></div>
 					<button type="button" class="togglebtn"
 						onclick="location.href='${pageContext.request.contextPath}/member/loginpage.do'">LOG
 						IN</button>
@@ -30,36 +34,32 @@
 						src="/biz/resources/images/tw.png" alt="twitter"> <img
 						src="/biz/resources/images/gl.png" alt="google">
 				</div>
-				<form action="${pageContext.request.contextPath}/member/login.do"
-					class="input-group" name="login" id="login" method="POST">
-					<input type="text" class="input-field"
-						placeholder="User name or Email" id="id" name="id"> <input
-						type="password" class="input-field" placeholder="Enter Password"
-						id="pass" name="pass">
-
+				
+				
+					
+				<form action="${pageContext.request.contextPath}/member/login.do" method="POST">
+					
+					<label for="inp" class="inp">
+					<input type="text" class="inp" placeholder="&nbsp;" id="id" name="id">
+					 <span class="label">아이디</span>
+  		     	  	 <span class="focus-bg"></span>
+					</label>
+					<label for="inp" class="inp">
+					<input type="password" class="inp" placeholder="&nbsp;" id="pass" name="pass">	 
+					 <span class="label">비밀번호</span>
+  		     	  	 <span class="focus-bg"></span>
+					</label>	
+						
+					<div style="float:center;">
 					<button class="submit">Login</button>
+					</div>
 				</form>
 
 
 			</div>
 		</div>
-		<script>
-			var x = document.getElementById("login");
-			var y = document.getElementById("register");
-			var z = document.getElementById("btn");
-
-			function login() {
-				x.style.left = "50px";
-				y.style.left = "450px";
-				z.style.left = "0";
-			}
-
-			function register() {
-				x.style.left = "-400px";
-				y.style.left = "50px";
-				z.style.left = "110px";
-			}
-		</script>
+		
+	
 	</section>
 </body>
 </html>

@@ -9,8 +9,10 @@
 <%@ page import="com.hotel.biz.DAO.JoinDAO" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/biz/resources/css/join.css" />
 <style>
 #btn{
@@ -89,30 +91,51 @@ left:50px;
 	</script>
 
 <%@ include file="../include/header.jsp" %>
-	<div class="page-wrap" content="width=device-width, initial-scale=1">
-			<section id="contact">
 
+			
+<section id="contact">
 		<div class="wrap">
-            <div class="form-wrap">
+            <div class="form-wrap" style="height: 700px;margin-top: 20px;">
             <br>
                 <h1 align="center">REGISTER</h1>
                 <div class="button-wrap">
+                    <button type="button" class="togglebtn" onclick="location.href='${pageContext.request.contextPath}/member/loginpage.do'">LOG IN</button>
                     <div id="btn"></div>
-                    <button type="button" class="togglebtn" onclick="location.href='${pageContext.request.contextPath}/user/loginpage.do'">LOG IN</button>
-                    <button type="button" class="togglebtn" onclick="location.href='${pageContext.request.contextPath}/user/joinpage.do'">REGISTER</button>
+                    <button type="button" class="togglebtn" onclick="location.href='${pageContext.request.contextPath}/member/register1'">REGISTER</button>
                 </div>
                  <div class="social-icons">
                     <img src="/biz/resources/images/fb.png" alt="facebook">
                     <img src="/biz/resources/images/tw.png" alt="twitter">
                     <img src="/biz/resources/images/gl.png" alt="google">
-                </div>                
+                </div>           
+                   
                 <form action="${pageContext.request.contextPath}/member/register" method="post" id="regForm">
-                    <input type="text" id="id" name="id" class="input-field1" placeholder="User name or Email" >
-                    <button class="idChk" type="button" id="idChk" onclick="fn_idChk();" value="N">중복확인</button> 
-                    <input type="password" class="input-field1" placeholder="Enter Password" id="pass" name="pass">
-                    <input type="text" class="input-field1" name="name"  id="name"  placeholder="Name">
-                    <input type="text" class="input-field1" name="phone"  id="phone"  placeholder="Phone">
-                    <input type="text" class="input-field1" name="email"  id="email"  placeholder="Email"> 
+           		     <label for="inp" class="inp">
+                    <input type="text" id="id" name="id" class="input-field1" placeholder="&nbsp;" >
+                    <span class="label">ID</span>
+  		     	  	 <span class="focus-bg"></span>
+					</label>
+                    <button class="submit2" type="button" id="idChk" onclick="fn_idChk();" value="N">중복확인</button>
+                    <label for="inp" class="inp"> 
+                    <input type="password" class="input-field1" placeholder="&nbsp;" id="pass" name="pass">
+                    <span class="label">password</span>
+  		     	  	 <span class="focus-bg"></span>
+					</label>
+					 <label for="inp" class="inp"> 
+                    <input type="text" class="input-field1" name="name"  id="name"  placeholder="&nbsp;">
+                    <span class="label">name</span>
+  		     	  	 <span class="focus-bg"></span>
+					</label>
+					<label for="inp" class="inp"> 
+                    <input type="text" class="input-field1" name="phone"  id="phone"  placeholder="&nbsp;">
+                    <span class="label">phone</span>
+  		     	  	 <span class="focus-bg"></span>
+					</label>
+					<label for="inp" class="inp"> 
+                    <input type="text" class="input-field1" name="email"  id="email"  placeholder="&nbsp;"> 
+                    <span class="label">email</span>
+  		     	  	 <span class="focus-bg"></span>
+					</label>
                     <button class="submit1" type="submit" id="submit">REGISTER</button>
                 </form>
                 

@@ -1,7 +1,9 @@
 
 package com.hotel.biz.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -86,18 +89,36 @@ public class UserController {
 	}
 	//업데이트 페이지 이동
 	@RequestMapping("/updateView")
-	public String update() throws Exception{
+	public String update(HttpSession session, MemberVO vo,HttpServletRequest req) throws Exception{
+		
+		
+		  MemberVO member = (MemberVO) session.getAttribute("member");
+
+		  session.setAttribute("member", member);
 		
 		return "user/myPage";
 	}
 	// 업데이트
+	@ResponseBody
 	@RequestMapping("/update")
-	public String memberUpdate(HttpSession session, MemberVO vo) throws Exception{
+	public Map<String, Object> memberUpdate(HttpSession session,
+			@RequestParam(value = "id")String id,
+			@RequestParam(value = "pass")String pass,
+			@RequestParam(value = "name")String name,
+			@RequestParam(value = "phone")String phone,
+			@RequestParam(value = "email")String email) throws Exception{
 		
-		joinService.memberUpdate(vo);
+		Map<String, Object> member = new HashMap<>();
+		member.put("id", id);
+		member.put("pass", pass);
+		member.put("name", name);
+		member.put("phone", phone);
+		member.put("email", email);
 		
+		System.out.println(member);
+		Map<String, Object> ss = joinService.member_update(member);
 		
-		return "redirect:/";
+		return ss;
 	}
 
 	// 회원 탈퇴 post

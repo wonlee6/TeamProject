@@ -1,6 +1,7 @@
 package com.hotel.biz.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -30,8 +31,8 @@ public class JoinServiceImpl implements JoinService {
 	}
 
 	@Override
-	public void memberUpdate(MemberVO vo) throws Exception {
-		joinDAO.memberUpdate(vo);
+	public Map<String, Object> member_update(Map<String, Object> member) throws Exception {
+		return joinDAO.member_update(member);
 	}
 
 	@Override

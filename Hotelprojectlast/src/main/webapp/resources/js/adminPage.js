@@ -175,7 +175,7 @@ function roomUpdate() {
 	//console.log(Obj);
 	$.ajax({
 		type : "post",
-		url : "room_update",
+		url : "update",
 	//	data : $('form').serialize(),
 	//	data : JSON.stringify(Obj),
 //		data : {"r_num" : $('#r_num').val(),

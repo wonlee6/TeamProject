@@ -1,6 +1,7 @@
 package com.hotel.biz.DAO;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -31,9 +32,9 @@ public class JoinDAOImpl implements JoinDAO {
 	}
 	
 	@Override
-	public void memberUpdate(MemberVO vo) throws Exception {
+	public Map<String, Object> member_update(Map<String, Object> member) throws Exception {
 		
-		sqlSession.selectOne(namespace + ".userUpdate", vo);
+		return sqlSession.selectOne(namespace + ".userUpdate", member);
 	}
 	@Override
 	public void memberDelete(MemberVO vo) throws Exception {
