@@ -52,7 +52,7 @@ public class UserController {
 		} catch (Exception e) {
 			throw new RuntimeException();
 		}
-		return "redirect:/";
+		return "redirect:/member/loginpage.do";
 		
 	}
 	// 로그인 페이지 이동

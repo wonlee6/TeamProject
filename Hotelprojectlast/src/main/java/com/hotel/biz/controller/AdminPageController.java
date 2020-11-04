@@ -34,7 +34,7 @@ import com.hotel.biz.service.AdminPageService;
 
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin/*")
 public class AdminPageController {
 	
 	@Inject
