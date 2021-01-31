@@ -34,7 +34,7 @@
 
 
 <body>
-
+<section id="loginfo">
 	<div class="table-wrapper" style="margin-top: 90px;">
 		<div class="form-wrap">
 			<br>
@@ -77,16 +77,15 @@
 			</form>
 			<div style="float:right;">
 			<button type="button" class="btn btn-success" onclick="update();" > 회원정보수정</button>
-				<button type="button" class="btn btn-success" onclick="remove();" > 회원탈퇴</button>
-				</div>
-			<!-- <button class="btn btn-success" type="submit" id="submit1">회원정보수정</button> -->
-				
-				
-			
-				<!-- <div class="form-group">
-                <button type="button" class="btn btn-block create-account" id="submit">회원탈퇴</button> -->
+			<button type="button" class="btn btn-success" onclick="remove();" > 회원탈퇴</button>
+			</div>
+			<c:if test="${msg == false }">
+				<p> 작업 중에 문제가 생겼습니다.</p>
+			</c:if>
             </div>
+            
 		</div>
+		</section>
 <div id="muModal" class="modal fade">
 	<div class="modal-dialog modal-confirm">
 		<div class="modal-content">
@@ -118,10 +117,11 @@
 				<p class="text-center">다음에 또 만나요.!</p>
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+				<button class="btn btn-success btn-block" onclick="location.href='/index.jsp';" data-dismiss="modal">OK</button>
 			</div>
 		</div>
 	</div>
 </div>     
 </body>
+<%@ include file="../include/footer.jsp"%>
 </html>

@@ -134,7 +134,7 @@ public class UserController {
 			
 			if(!(sessionPass.equals(voPass))) {
 				rttr.addFlashAttribute("msg", false);
-				return "redirect:/member/memberDeleteView";
+				return "redirect:/user/updateView";
 			}
 			joinService.memberDelete(vo);
 			session.invalidate();

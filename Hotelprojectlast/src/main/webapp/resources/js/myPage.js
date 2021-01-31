@@ -14,11 +14,12 @@ function remove() {
 				console.log("성공");
 				if (data == 0) {
 					alert("패스워드가 틀렸습니다.");
+					$("#pass").empty();
 					return;
 				} else {
 					if (confirm("회원탈퇴하시겠습니까?")) {
 						$("#delForm").submit();
-						$('#meModal2').modal();
+						$('#meModal2').modal('show');
 					}
 
 				}
@@ -54,6 +55,7 @@ function update() {
 		success : function (data){
 			console.log("성공");
 			$('#muModal').modal('show');
+			$("#pass").empty();
 		//	alert("성공")
 			
 		},error : function(request, status, error) {
@@ -61,6 +63,6 @@ function update() {
 			msg += +"내용 : " + request.responseText + "<br>" + error;
 			console.log(msg);
 		}	
-		
 	})
+	$("#pass").empty();
 }
